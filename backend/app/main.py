@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.config import APP_NAME, APP_VERSION
 from app.routers import chat, health
 
 app = FastAPI(
-    title="RAG Agent API",
-    version="0.1.0",
+    title=APP_NAME,
+    version=APP_VERSION,
 )
 
 app.add_middleware(
