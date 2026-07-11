@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import APP_NAME, APP_VERSION
-from app.routers import chat, health
+from app.routers import chat, health, database
 
 app = FastAPI(
     title=APP_NAME,
@@ -26,3 +26,5 @@ app.include_router(chat.router)
 @app.get("/")
 def root():
     return {"message": "RAG Agent Backend is running!"}
+
+app.include_router(database.router)
